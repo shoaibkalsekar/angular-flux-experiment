@@ -1,0 +1,89 @@
+<!DOCTYPE>
+<html ng-app="ChirpApp">
+  <head>
+    <title> Chirper - Angular & FLux</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <!-- <link href="http://bootstrap-themes.github.io/application/assets/css/toolkit.css" rel="stylesheet">
+    <link href="http://bootstrap-themes.github.io/application/assets/css/application.css" rel="stylesheet"> -->
+    <style>
+      .chirpItem {
+        margin: 30px 0;
+        background-color: #ececec;
+        border: 1px solid #eaeaea;
+        border-radius: 2px;
+      }
+      .chirpItem__btn--action {
+        width: 100%;
+        background-color: #337ab7;
+        display: block;
+        color: #FFF;
+        text-align: center;
+        padding: 10px;
+        margin-top: 1px;
+      }
+      .img-responsive {
+        width: 100%;
+        min-height: 200px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+
+    <div class="container" ng-controller="chirpsController">
+      <h1 class="text-center"> Chirper </h1>
+      <h3 class="text-center"> Search for any GIFs here. </h3>
+
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for..." ng-model="chirpSearchText" />
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" ng-click="searchGIF(chirpSearchText)" >Go!</button>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- <ChirpsList chirps={this.state.chirps} /> -->
+      <div class="row">
+        <div class="col-md-4">
+          <div class="chirpItem" ng-repeat="chirp in chirps[0]">
+            <div class="chirpItem__img">
+              <img class="img-responsive" ng-src="{{chirp.images.original.url}}" />
+            </div>
+            <div class="chirpItem__meta">
+              <a ng-href="{{chirp.url}}" class="chirpItem__btn--action">View Source</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="chirpItem" ng-repeat="chirp in chirps[1]">
+            <div class="chirpItem__img">
+              <img class="img-responsive" ng-src="{{chirp.images.original.url}}" />
+            </div>
+            <div class="chirpItem__meta">
+              <a ng-href="{{chirp.url}}" class="chirpItem__btn--action">View Source</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="chirpItem" ng-repeat="chirp in chirps[2]">
+            <div class="chirpItem__img">
+              <img class="img-responsive" ng-src="{{chirp.images.original.url}}" />
+            </div>
+            <div class="chirpItem__meta">
+              <a ng-href="{{chirp.url}}" class="chirpItem__btn--action">View Source</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="javascripts/main.js"></script>
+  </body>
+</html>
